@@ -9,6 +9,14 @@
 </head>
 <body>
     <h1>Comidas</h1>
+    @if($exito != null)
+        @if($exito == 1)
+            <p>Se ha agergado una comida</p>
+        @else
+            <p>No se ha podido agregar comida</p>
+        @endif
+    @endif
+    <a href="{{route('comidas.create')}}">
     <button>Agregar Comida</button>
     <table>
         <thead>
@@ -19,11 +27,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($comida as $comida)
+            @foreach($comidas as $comida)
                 <tr>
                     <td>{{$comida->nombre}}</td>
                     <td>{{$comida->precio}}</td>
-                
+                    <td><button>Editar</button></td>
                 </tr>
             @endforeach
         </tbody>
